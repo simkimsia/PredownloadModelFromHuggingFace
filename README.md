@@ -29,6 +29,12 @@ You can install them using pip:
 pip install transformers torch
 ```
 
+## Video Walkthrough
+
+Watch this short video for a complete walkthrough of how to use the script:
+
+[🎥 Watch the walkthrough on Loom](https://www.loom.com/share/a8bf961aa61c46038179238f3321a0f4)
+
 ## How to Use
 
 ### 1. Copy the Script to Your Project
