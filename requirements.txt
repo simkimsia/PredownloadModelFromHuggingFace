@@ -1,0 +1,10 @@
+# run `pip install -r requirements.txt`
+# Core library from Hugging Face for model interaction
+transformers
+
+# The underlying deep learning framework for the models
+torch
+
+# Dependencies for specific models (e.g., microsoft/Florence-2-large)
+einops
+timm

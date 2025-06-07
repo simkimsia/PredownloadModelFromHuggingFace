@@ -18,11 +18,22 @@ This script provides a simple solution: download the models you need *once*. The
 
 Once cached, your main application can load the models from the local cache instead of downloading them from the internet every time. This is much faster and avoids any rate-limiting issues.
 
+## Requirements
+
+To run the script, you'll need Python and the following libraries installed:
+- `transformers`
+- `torch`
+
+You can install them using pip:
+```bash
+pip install transformers torch
+```
+
 ## How to Use
 
-### 1. Create a Project-Specific Script (Recommended)
+### 1. Copy the Script to Your Project
 
-Before you begin, it's a good practice to make a copy of `pre_download_model.py`. Rename the file to something that reflects your project, for example, `download_my_project_models.py`.
+Copy the `pre_download_model.py` script from this repository into your own project's folder. It's recommended to rename it to something that reflects your project, for example, `download_my_project_models.py`.
 
 This approach keeps your project-specific configurations separate and leaves the original script unchanged for future use.
 
@@ -102,9 +113,9 @@ That's it! Now you can run your main application (e.g., your Streamlit app). It 
 
 That's an excellent question. While you can use specific model classes like `CLIPModel` or `CLIPProcessor`, this script uses the more general `AutoModel` and `AutoProcessor` for a few key reasons:
 
-1.  **Simplicity for Users**: By using `AutoModel`, you can add most new models to the `SIMPLE_MODELS` list without needing to know their specific class name (`CLIPModel`, `BertModel`, `T5ForConditionalGeneration`, etc.). You just need the model's Hugging Face identifier.
+1. **Simplicity for Users**: By using `AutoModel`, you can add most new models to the `SIMPLE_MODELS` list without needing to know their specific class name (`CLIPModel`, `BertModel`, `T5ForConditionalGeneration`, etc.). You just need the model's Hugging Face identifier.
 
-2.  **Universal and Maintainable Code**: Using the `Auto` classes allows a single, generic `download_model` function to handle the vast majority of models. This makes the script cleaner and easier to maintain than having a separate download function for each model type.
+2. **Universal and Maintainable Code**: Using the `Auto` classes allows a single, generic `download_model` function to handle the vast majority of models. This makes the script cleaner and easier to maintain than having a separate download function for each model type.
 
 The `transformers` library's `Auto` classes are smart. When you provide an identifier like `"openai/clip-vit-base-patch32"`, `AutoModel` inspects the model's configuration on the Hugging Face Hub and automatically loads the correct architecture (in this case, `CLIPModel`). The script therefore achieves the same result but in a more flexible and user-friendly way.
 
