@@ -1,6 +1,6 @@
 # run `pip install -r requirements.txt`
 # Core library from Hugging Face for model interaction
-transformers
+transformers==4.51.3 # broke with florence2 when >= 4.52.1 see https://huggingface.co/microsoft/Florence-2-large/discussions/104
 
 # The underlying deep learning framework for the models
 torch

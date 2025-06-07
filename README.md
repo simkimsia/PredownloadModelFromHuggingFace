@@ -33,7 +33,7 @@ pip install transformers torch
 
 ### 1. Copy the Script to Your Project
 
-Copy the `pre_download_model.py` script from this repository into your own project's folder. It's recommended to rename it to something that reflects your project, for example, `download_my_project_models.py`.
+**You SHOULD copy the `pre_download_model.py` script from this repository into your own project's folder.** It's recommended to rename it to something that reflects your project, for example, `download_my_project_models.py`.
 
 This approach keeps your project-specific configurations separate and leaves the original script unchanged for future use.
 
@@ -88,6 +88,8 @@ How do you know if a model belongs in `SIMPLE_MODELS` or `ADVANCED_MODELS`? You 
 **Rule of Thumb:** If the Hugging Face page shows a simple `AutoModel.from_pretrained("your-model-id")` with no other special parameters, you can add it to the `SIMPLE_MODELS` list. For anything more complex, `ADVANCED_MODELS` is the right choice.
 
 ### 3. Run the script
+
+**Important 🚨🚨:** It's crucial to run this script in the same virtual environment (`venv`) as your GenAI or Streamlit project. This ensures the models are downloaded to the correct cache directory, so your main application can find them.
 
 Execute the script from your terminal:
 
