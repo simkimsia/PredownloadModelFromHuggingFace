@@ -48,16 +48,17 @@ def download_model(model_config: dict):
     Downloads a model and its processor from the Hugging Face Hub based on the
     provided configuration.
     """
-    model_id = model_config["id"]
-    ModelClass = model_config.get("model_class", AutoModel)
-    ProcessorClass = model_config.get("processor_class", AutoProcessor)
-    trust_remote_code = model_config.get("trust_remote_code", False)
+    # Make a copy to avoid modifying the original dict
+    config = model_config.copy()
+
+    model_id = config.pop("id")
+    ModelClass = config.pop("model_class", AutoModel)
+    ProcessorClass = config.pop("processor_class", AutoProcessor)
 
     print(f"-> Downloading: {model_id}")
 
-    kwargs = {}
-    if trust_remote_code:
-        kwargs["trust_remote_code"] = True
+    # The rest of the keys in config are kwargs for from_pretrained
+    kwargs = config
 
     try:
         if ModelClass:
